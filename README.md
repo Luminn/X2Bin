@@ -76,16 +76,13 @@ or
     PAIR: same as TUPLE2
 
 ### Special Symbols:
-    $any: an ARRAY of all child tags writes count as an INT
-    $attrs: an ARRAY of all attributes, writes count as an INT
-        note: $any, $attrs and ARRAYs will ignore already visited items
-    $dict: an ARRAY of all attributes as key-value pairs, writes count as an INT
+    $any: an ARRAY of all child tags, writes count as an INT.
+    $attrs: an ARRAY of all attributes as key-value pairs, writes count as an INT.
         note: $any, $attrs and ARRAYs will ignore already visited items
     $value: represents the text node
-    $name: represents the name of the tag (when used with $any)
-    $default: not a node, used for default value
-              if $default does not exist, a complex type missing will
-              be counted as an error
+    $name: represents the name of the tag (when used with $any).
+    $default: not a node, used for default value.
+              if both $default and prefix? does not exist, a non-literal type missing will be counted as an error
     
     prefixes:
     ~: represents an XML attribute, in json mode or yaml mode will be treated a normal node
@@ -94,6 +91,8 @@ or
         $Tag:
             Children+:
                 Child*: $Tag
+    $$: non-root recursive object
+    $$include: import recursive objects from schema
     
     postfixes:
     ?: Write a bool representing if the tag exists or not to the buffer,
