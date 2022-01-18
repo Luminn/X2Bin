@@ -1,7 +1,7 @@
 # X2Bin
 A XML to Binary tool optimized for .NET usage.
 
-##Usage
+## Usage
 
     X2Bin --schema schema.yaml --input file/or/folder --output file.xbin [--mode xml|yaml|json]
         [--singleton] [--extension .thing] [--int 7bit|int8|int16|int32] [--float single|double] 
@@ -14,7 +14,7 @@ or
 
     X2Bin --build build.txt --output directory/to/dict
 
-##Arguments
+## Arguments
     --mode: type of file we scan, use xml|json to scan both, required in folder mode
     --input: if input is a folder, we will find all valid xml files in the folder, and read
              all root or level 1 child nodes that matches the root tag of the schema.
@@ -45,7 +45,7 @@ or
                    and pre-compile ALL SCRIPT|CODE as CSharpScript into assemblies
 
 
-##Schema:
+## Schema:
     TagName1: TYPE
     TagName2: [TYPE, default_value]
     TagName3: 
@@ -54,8 +54,8 @@ or
         ~Attribute1: TYPE
         $default: [value1, value2]
 
-###Types:
-###Concrete Types:
+### Types:
+### Concrete Types:
     BOOL ("", false, no, none are considered false, the rest are true), 1 byte
     BYTE|INT8, SHORT|INT16, INT32, LONG|INT64
     INT7 (7BitEncodedInt in C#, used for string length)
@@ -65,7 +65,7 @@ or
     ENUM: [ENUM, ClassName, OptionalDefaultStringEnumValue]
           parse to the INT value of a .NET Enum in an assembly
 
-###Variable Types:
+### Variable Types:
     INT: Serves as the indexer of arrays and values of Enums
          by default an INT7, could be int of any size
     STRING|RAW: Depends on the --trim-string setting
@@ -75,7 +75,7 @@ or
     CSV[X]: Tuple[X] but allows comma as a separator
     PAIR: same as TUPLE2
 
-###Special Symbols:
+### Special Symbols:
     $any: an ARRAY of all child tags writes count as an INT
     $attrs: an ARRAY of all attributes, writes count as an INT
         note: $any, $attrs and ARRAYs will ignore already visited items
@@ -105,7 +105,7 @@ or
            Things+:
                Thing*: STRING
     
-###Value Types:
+### Value Types:
     1 INT 1b INT8 1s INT16 1i INT32 il INT64
     1.0 FLOAT/DOUBLE(if --float=double) 1f FLOAT 1d DOUBLE
     abc STRING
