@@ -100,6 +100,7 @@ or
     !: Remove default values on primitives, forcing an error
     *: Array, write count as an INT
     +: Array wrapper, if not exist, write count 0 as an INT
+       Same as $default: 0
        Example:
            Things+:
                Thing*: STRING
